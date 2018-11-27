@@ -10,7 +10,7 @@
       "id": 2,
       "name": "Buzz Lightyear",
       "image": "http://www.pngmart.com/files/6/Buzz-Lightyear-PNG-Transparent-Picture.png",
-      "likes": 8
+      "likes": 3
     },
     {
       "id": 3,
@@ -46,7 +46,25 @@
       "id": 8,
       "name": "Little Green Men",
       "image": "http://www.pngmart.com/files/3/Toy-Story-Alien-PNG-File.png",
-      "likes": -2
+      "likes": 0
+    },
+    {
+      "name": "crreeeeeepy",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3fSFkbVyrGLkG8f2opZ6DgsI60gNMxb7EBCrtYSDYke1aWhWO",
+      "likes": 1,
+      "id": 11
+    },
+    {
+      "name": "new toy",
+      "image": "https://1.bp.blogspot.com/-epgADUEiFyQ/UIrhxCiSOLI/AAAAAAAAHCE/RoMi078GceQ/s1600/TSMania_Buzz.jpg",
+      "likes": 8,
+      "id": 12
+    },
+    {
+      "name": "new toy",
+      "image": "https://3.bp.blogspot.com/-GMNPWoDro78/UIrht4AiaII/AAAAAAAAHB8/UT-k1UjZM_g/s1600/TSMania_Woody.jpg",
+      "likes": 10,
+      "id": 13
     }
   ]
 }
