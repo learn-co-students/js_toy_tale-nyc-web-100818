@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Woody",
       "image": "http://www.pngmart.com/files/3/Toy-Story-Woody-PNG-Photos.png",
-      "likes": 5
+      "likes": 9
     },
     {
       "id": 2,
@@ -28,7 +28,7 @@
       "id": 5,
       "name": "Rex",
       "image": "http://umich.edu/~chemh215/W11HTML/SSG5/ssg5.2/FRex.png",
-      "likes": 1
+      "likes": 6
     },
     {
       "id": 6,
@@ -46,7 +46,37 @@
       "id": 8,
       "name": "Little Green Men",
       "image": "http://www.pngmart.com/files/3/Toy-Story-Alien-PNG-File.png",
-      "likes": -2
+      "likes": 4
+    },
+    {
+      "name": "capn",
+      "image": "https://pics.drugstore.com/prodimg/576126/900.jpg",
+      "id": 9,
+      "likes": 5
+    },
+    {
+      "name": "hot sos",
+      "image": "https://cdn.shopify.com/s/files/1/2086/9287/products/LAstdabReduxx_1024x1024-1_1024x1024.jpg?v=1527778720",
+      "id": 10,
+      "likes": 4
+    },
+    {
+      "name": "",
+      "image": "",
+      "id": 11,
+      "likes": 6
+    },
+    {
+      "name": "dino lamp",
+      "image": "https://target.scene7.com/is/image/Target/GUEST_4de97dc6-7095-431c-897b-d30233b2d1f3?wid=488&hei=488&fmt=pjpeg",
+      "id": 12,
+      "likes": 5
+    },
+    {
+      "name": "another dino lamp",
+      "image": "https://target.scene7.com/is/image/Target/GUEST_4de97dc6-7095-431c-897b-d30233b2d1f3?wid=488&hei=488&fmt=pjpeg",
+      "id": 13,
+      "likes": 4
     }
   ]
 }
