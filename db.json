@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Woody",
       "image": "http://www.pngmart.com/files/3/Toy-Story-Woody-PNG-Photos.png",
-      "likes": 5
+      "likes": 63
     },
     {
       "id": 2,
@@ -47,6 +47,12 @@
       "name": "Little Green Men",
       "image": "http://www.pngmart.com/files/3/Toy-Story-Alien-PNG-File.png",
       "likes": -2
+    },
+    {
+      "name": "snow white",
+      "image": "https://lumiere-a.akamaihd.net/v1/images/file_149237d5.jpeg?width=1200&region=0%2C0%2C2000%2C2000&quality=8",
+      "likes": 0,
+      "id": 9
     }
   ]
 }
