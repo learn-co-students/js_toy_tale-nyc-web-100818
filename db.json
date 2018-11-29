@@ -4,13 +4,13 @@
       "id": 1,
       "name": "Woody",
       "image": "http://www.pngmart.com/files/3/Toy-Story-Woody-PNG-Photos.png",
-      "likes": 5
+      "likes": 13
     },
     {
       "id": 2,
       "name": "Buzz Lightyear",
       "image": "http://www.pngmart.com/files/6/Buzz-Lightyear-PNG-Transparent-Picture.png",
-      "likes": 8
+      "likes": 13
     },
     {
       "id": 3,
@@ -46,7 +46,19 @@
       "id": 8,
       "name": "Little Green Men",
       "image": "http://www.pngmart.com/files/3/Toy-Story-Alien-PNG-File.png",
-      "likes": -2
+      "likes": 0
+    },
+    {
+      "name": "Chucky",
+      "image": "https://vignette.wikia.nocookie.net/chuckychildsplay/images/a/a8/New_Chucky.png/revision/latest?cb=20111229223616",
+      "likes": 0,
+      "id": 9
+    },
+    {
+      "name": "Necronomicon",
+      "image": "https://cdn.disclose.tv/sites/default/files/styles/inline/public/img/inline/2015/12/29/the-most-dangerous-book-of-humanity-the-hidden-truth-of-the-necronomicon-310749-1.jpg?itok=dZRCpvb6",
+      "likes": 41,
+      "id": 10
     }
   ]
 }
