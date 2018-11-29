@@ -68,11 +68,12 @@ addBtn.addEventListener('click', () => {
 
   ///STEP 5: Increase toy's likes! // OPTIMISTIC RENDERING
   toyCollectionDiv.addEventListener('click', (e) =>{
-    if (e.target.className){
+
+    if (e.target.className === "like-btn"){
       currentToyIndex = parseInt(e.target.parentElement.id)
       currentLikes = parseInt(e.target.parentElement.querySelector('p').innerText.split(" ")[1])
       e.target.parentElement.querySelector('p').innerText = `Likes: ${currentLikes+1}`
-
+debugger
       console.log(currentToyIndex, currentLikes)
       fetch(`http://localhost:3000/toys/${currentToyIndex}`, {
         method: 'PATCH',
