@@ -21,6 +21,10 @@ body {
   margin: 2rem;
 }
 
+#search-box {
+  text-align: center;
+}
+
 .card {
   text-align: center;
   border: grey solid 1px;

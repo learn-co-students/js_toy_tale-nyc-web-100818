@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="index.css">
   </head>
   <body>
-    
+
     <div id='toy-header'>
       <img src="https://fontmeme.com/permalink/180719/67429e6afec53d21d64643101c43f029.png" alt="toy-header">
     </div>
@@ -16,16 +16,26 @@
       <form class="add-toy-form" style="">
         <h3>Create a toy!</h3>
 
-        <input type="text" name="name" value="" placeholder="Enter a toy's name..." class="input-text">
+        <input id="toy-name" type="text" name="name" value="" placeholder="Enter a toy's name..." class="input-text">
         <br>
-        <input type="text" name="image" value="" placeholder="Enter a toy's image URL..." class="input-text">
+        <input id="toy-image" type="text" name="image" value="" placeholder="Enter a toy's image URL..." class="input-text">
         <br>
         <input type="submit" name="submit" value="Create New Toy" class="submit">
       </form>
     </div>
     <p style='text-align:center' >Andy needs your help! <button id='new-toy-btn'>Add a new toy!</button></p>
 
+    <!-- CODE FOR SEARCH FORM -->
+              <div class="ui icon input" id="search-box">
+                <input  id="filter-input" type="text" name="filter" value="" placeholder="Search for toy">
+                <button id="search-button">Search</button>
+                <i class="search icon"></i>
+              </div>
 
+    <!-- END CODE FOR SEARCH FORM -->
+
+
+    </div>
     <div id="toy-collection">
     </div>
 
