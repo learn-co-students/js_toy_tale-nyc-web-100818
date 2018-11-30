@@ -47,6 +47,18 @@
       "name": "Little Green Men",
       "image": "http://www.pngmart.com/files/3/Toy-Story-Alien-PNG-File.png",
       "likes": -2
+    },
+    {
+      "name": "Green Ranger",
+      "image": "https://media.entertainmentearth.com/assets/images/2ede617a27274488a45f9de58a298f76lg.jpg",
+      "likes": "1",
+      "id": 9
+    },
+    {
+      "name": "Red Ranger",
+      "image": "https://media.entertainmentearth.com/assets/images/ee050a0af7a94ee58729fb914c04fe91lg.jpg",
+      "likes": 0,
+      "id": 10
     }
   ]
 }

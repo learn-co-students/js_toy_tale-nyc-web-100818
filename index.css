@@ -21,6 +21,10 @@ body {
   margin: 2rem;
 }
 
+#toy-likes {
+    display:inline;
+}
+
 .card {
   text-align: center;
   border: grey solid 1px;
