@@ -7,11 +7,20 @@
     <link rel="stylesheet" href="index.css">
   </head>
   <body>
-    
     <div id='toy-header'>
       <img src="https://fontmeme.com/permalink/180719/67429e6afec53d21d64643101c43f029.png" alt="toy-header">
     </div>
 
+    <!-- /////////////////////////////////////edit form ///////////////////////////////////////// -->
+    <form id="edit-toy-form" class="ui form" action="index.html" method="POST">
+      <label for="name">Toy Name: </label>
+      <input id="edit-toy-name-input" type="text" name="name" value="">
+      <label for="image">Toy Image: </label>
+      <input id="edit-toy-image-input" type="text" name="image" value="">
+      <br>
+      <button id="edit-toy-form-button" type="submit" name="button" class="ui button">Submit Edit</button>
+    </form>
+    <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////// -->
     <div class="container">
       <form class="add-toy-form" style="">
         <h3>Create a toy!</h3>
