@@ -1,106 +1,104 @@
-  document.addEventListener('DOMContentLoaded', e => {
-    // *********** DOM ELEMENTS **********
-    const addBtn = document.querySelector('#new-toy-btn')
-    const toyForm = document.querySelector('.container')
-    let toyCont = document.getElementById('toy-collection')
-    const toyCards = document.getElementsByClassName('className')
-    // ********** VARIABLES *************
-    let addToy = false
-    const url = 'http://localhost:3000/toys'
-    // ********** FETCHES/EVENT LISTENERS **********
-    fetch(url, { method: 'GET' })
-      .then(r => r.json()) // parse the json
-      .then(arrayofToyObj => {
-        arrayofToyObj.forEach((toy) => {
-          // find the container to append each toy to which we got above (toyCont)
-          renderOneToy(toy)
+document.addEventListener('DOMContentLoaded', () => {
+  // DOM ELEMENTS
+  const addBtn = document.querySelector('#new-toy-btn')
+  const toyForm = document.querySelector('.container')
+  const toyCollection = document.getElementById('toy-collection')
+  // VARIABLES
+  let addToy = false
+  const toysURL = 'http://localhost:3000/toys'
+  // EVENT LISTENERS/FETCHES
+  // ************* GIVEN TO US ****************
+  addBtn.addEventListener('click', () => {
+    // hide & seek with the form
+    addToy = !addToy
+    if (addToy) {
+      toyForm.style.display = 'block'
+      // submit listener here
+    } else {
+      toyForm.style.display = 'none'
+    }
+  })
+  // *****************************************
+  // INITIAL FETCH TO GET ALL TOYS & THEN APPEND TO THE toyCollection DIV
+  // THIS HAPPENS ON PAGE LOAD AND WE ARE INSIDE DOMContentLoaded
+  fetch(toysURL, { method: 'GET' }) // default is get but i like to write it to be explicit
+    .then(r => r.json())
+    .then(arrayOfToyObjects => {
+      // append the arrayOfToyObjects to the toyCollection div
+      let jsonAsHTML = arrayOfToyObjects.map((toyObject) => {
+        return `<div id="toy-${toyObject.id}" class="card">
+                <h2>${toyObject.name}</h2>
+                <img src=${toyObject.image} class="toy-avatar" />
+                <p>${toyObject.likes} Likes </p>
+                <button id=${toyObject.id} class="like-btn">Like <3</button>
+              </div>`
+      }).join('') // gets ride of commas from the map
+      // now set the innerHTML of the toyCollection to the huge string returned by the map (jsonAsHTML)
+      toyCollection.innerHTML = jsonAsHTML
+    })
+    // need a SUBMIT event for the create a toy form
+    // the form is provided for us already, toyForm
+    // add a submit event listener to the form NOT to the button bc children of a form will make it submit
+    // send a POST request to create the new toy
+    // pessimistically render the new toy to the page
+    toyForm.addEventListener('submit', (e) => {
+      // forms try to POST so we must PREVENT DEFAULT
+      e.preventDefault()
+      // must send what the user typed into the form in the post body as the information to update the server
+      // capture user's input
+      let newName = toyForm.querySelector('#new-name').value
+      let newUrl = toyForm.querySelector('#new-url').value
+      // send the above input values in the post
+      fetch(toysURL, {
+        method: 'POST',
+        headers: { 'Content-type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          "name": newName,
+          "image": newUrl,
+          "likes": 0
         })
       })
-    /////////////////////// GIVEN TO US /////////////////////////////
-    addBtn.addEventListener('click', () => {
-      // hide & seek with the form
-      addToy = !addToy
-      if (addToy) {
-        toyForm.style.display = 'block'
-        // submit listener here
-        toyForm.addEventListener('submit', (e) => {
-          e.preventDefault()
-          // grab the inputs from the user creating a new toy...
-          let newName = document.getElementById('toy-name').value
-          let newURL = document.getElementById('toy-image').value
-          let newLikes = 0
+      .then(r => r.json())
+      .then(newToyObject => {
+        // append the newToyObject data to the page
+        toyCollection.innerHTML += `<div id="toy-${newToyObject.id}" class="card">
+                                    <h2>${newToyObject.name}</h2>
+                                    <img src=${newToyObject.image} class="toy-avatar" />
+                                    <p>${newToyObject.likes} Likes </p>
+                                    <button id=${newToyObject.id} class="like-btn">Like <3</button>
+                                  </div>`
+      })
+      e.target.reset() // reset the forms to blank
+    }) // END toyForm eventlistener
 
-          e.target.reset() // reset input field so u don't have to backspace
-          // optimistically render these changes...show immediately
-          toyCont.innerHTML += `<div id="toy-${id}" class="card">
-                                  <h2>${newName}</h2>
-                                  <img src=${newURL} class="toy-avatar" />
-                                  <p>${newLikes} Likes </p>
-                                  <button id="toy-${id}" class="like-btn">Like <3</button>
-                                </div>`
-         // fetch to update API
-         fetch(url, {
-           method: 'POST',
-           headers: {
-             'Content-Type': 'application/json',
-             Accept: 'application/json'
-           },
-           body: JSON.stringify({
-             "name": newName,
-             "image": newURL,
-             "likes": newLikes
-           })
-         })
+    toyCollection.addEventListener('click', (e) => {
+      if (e.target.className === 'like-btn') {
+        let likedToyId = e.target.id
+        let likedToy = document.getElementById(`toy-${likedToyId}`)
+        let pTagText = likedToy.querySelector('p').innerText
+        let likesCount = parseInt(pTagText)
+        let incrementedLikes = likesCount + 1
+
+        fetch(`http://localhost:3000/toys/${likedToyId}`, {
+          method: 'PATCH',
+          headers: {'Content-type': 'application/json', Accept: 'application/json'},
+          body: JSON.stringify({
+            "likes": incrementedLikes
+          })
         })
-      } else {
-        toyForm.style.display = 'none'
+        .then(r => r.json())
+        .then(updatedToy => {
+          let toyToEdit = document.getElementById(`toy-${updatedToy.id}`)
+          let pTagToEdit = toyToEdit.querySelector('p')
+          pTagToEdit.innerHTML = `<p>${updatedToy.likes} Likes </p>`
+        })
       }
     })
 
-    // Increase likes --> add EVENT listener to the CONTAINER/PARENT of all the  buttons bc parent knows about its children
-    toyCont.addEventListener('click', e => {
-      let foundToy = ''
-    // specify the click event for the like button
-      if (e.target.className === 'like-btn') {
-        let likeButtonId = e.target.id
-        // debugger
-        let foundToyId = parseInt(likeButtonId.split('-')[1])
-        // find the element on the page with this id! each div has one of these
-        let foundToy = document.getElementById(`${likeButtonId}`)
-        // find this foundToy's p tag where it lists the likes
-        let foundPTag = foundToy.querySelector('p')
-        let likesCounter = parseInt(foundPTag.innerText)
-        let newLikes = likesCounter + 1
-        // optimistically render
-        foundPTag.innerHTML = `${newLikes} likes`
-        // now send a PATCH to the server
-        fetch(`http://localhost:3000/toys/${foundToyId}`, {
-          method: 'PATCH',
-          headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/json'
-          },
-          body: JSON.stringify({
-            "likes": newLikes
-          })
-        })
-      } // end of if statement
-    }) // end of event listener
-
-
-    ////////////////////// HELPERS ////////////////////////////
-    function renderOneToy(toy) {
-      // return - not necessary
-      toyCont.innerHTML += `<div id="toy-${toy.id}" class="card">
-                              <h2>${toy.name}</h2>
-                              <img src=${toy.image} class="toy-avatar" />
-                              <p>${toy.likes} Likes </p>
-                              <button id="toy-${toy.id}" class="like-btn">Like <3</button>
-                            </div>`
-    }
-
-  }) // end of DOMContentLoaded
 
 
 
-// OR HERE!
+
+
+
+}) // END DOMContentLoaded
