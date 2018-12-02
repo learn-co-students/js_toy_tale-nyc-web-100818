@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Woody",
       "image": "http://www.pngmart.com/files/3/Toy-Story-Woody-PNG-Photos.png",
-      "likes": 5
+      "likes": "6"
     },
     {
       "id": 2,
@@ -46,7 +46,31 @@
       "id": 8,
       "name": "Little Green Men",
       "image": "http://www.pngmart.com/files/3/Toy-Story-Alien-PNG-File.png",
-      "likes": -2
+      "likes": "1"
+    },
+    {
+      "name": "Dog",
+      "image": "https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg?cs=srgb&dl=adorable-animal-breed-356378.jpg&fm=jpg",
+      "likes": 0,
+      "id": 9
+    },
+    {
+      "name": "Cat",
+      "image": "https://images.pexels.com/photos/434090/pexels-photo-434090.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350",
+      "likes": 0,
+      "id": 10
+    },
+    {
+      "name": "Cubs",
+      "image": "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350",
+      "likes": "1",
+      "id": 11
+    },
+    {
+      "name": "MugCub",
+      "image": "https://images.pexels.com/photos/39317/chihuahua-dog-puppy-cute-39317.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350",
+      "likes": "1",
+      "id": 12
     }
   ]
 }
